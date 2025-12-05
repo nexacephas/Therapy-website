@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./Hero.css";
-import banner1 from "../../assets/anxiety-8116570_1280.jpg";
-import banner2 from "../../assets/massage-4916847_1280.jpg";
-import banner3 from "../../assets/woman-2722936_1280.jpg";
+import banner1 from "../../assets/Purpose is the key to a long life_.jpeg";
+import banner2 from "../../assets/Explore a collection of 25 inspiring Reiki phrases….jpeg";
+import banner3 from "../../assets/shiatsu.jpeg";
+import { LanguageContext } from "../../context/LanguageContext";
 
 const banners = [banner1, banner2, banner3];
 
 const Hero = () => {
   const [current, setCurrent] = useState(0);
+  const { lang } = useContext(LanguageContext); // Get current language
 
   // Rotate banners every 6 seconds
   useEffect(() => {
@@ -16,6 +18,22 @@ const Hero = () => {
     }, 6000);
     return () => clearInterval(interval);
   }, []);
+
+  // Texts in both languages
+  const heroTexts = {
+    en: {
+      title: "Welcome to Serenity Therapists",
+      subtitle:
+        "Your journey to wellness begins here. Discover trusted female therapists and start your path to self-care.",
+      button: "Find a Therapist",
+    },
+    jp: {
+      title: "セレニティセラピストへようこそ",
+      subtitle:
+        "あなたのウェルネスへの旅はここから始まります。信頼できる女性セラピストを見つけ、自分自身のケアを始めましょう。",
+      button: "セラピストを探す",
+    },
+  };
 
   return (
     <section className="hero">
@@ -31,12 +49,10 @@ const Hero = () => {
       {/* Overlay */}
       <div className="hero-overlay">
         <div className="hero-content">
-          <h1 className="fade-in">Welcome to Serenity Therapists</h1>
-          <p className="fade-in delay-1">
-            Your journey to wellness begins here. Discover trusted female therapists and start your path to self-care.
-          </p>
+          <h1 className="fade-in">{heroTexts[lang].title}</h1>
+          <p className="fade-in delay-1">{heroTexts[lang].subtitle}</p>
           <a href="/therapists" className="hero-btn fade-in delay-2">
-            Find a Therapist
+            {heroTexts[lang].button}
           </a>
         </div>
       </div>

@@ -1,0 +1,32 @@
+.lang-toggle {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.lang-toggle button {
+  background: transparent;
+  border: 2px solid #ff7e5f;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-weight: 600;
+  color: #ff7e5f;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lang-toggle button:hover {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(255,126,95,0.35);
+}
+
+.lang-toggle button.active {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(255,126,95,0.35);
+}
+.lang-toggle button.active:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 28px rgba(255,126,95,0.45);
+}

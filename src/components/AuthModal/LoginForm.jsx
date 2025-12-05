@@ -1,7 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { FaEnvelope, FaLock, FaGoogle, FaFacebookF } from "react-icons/fa";
+import { LanguageContext } from "../../context/LanguageContext";
+
+const loginText = {
+  en: {
+    email: "Email",
+    password: "Password",
+    loginBtn: "Login",
+    forgot: "Forgot Password?",
+    register: "Register",
+    socialGoogle: "Login with Google",
+    socialFacebook: "Login with Facebook"
+  },
+  jp: {
+    email: "メールアドレス",
+    password: "パスワード",
+    loginBtn: "ログイン",
+    forgot: "パスワードを忘れた場合",
+    register: "登録",
+    socialGoogle: "Googleでログイン",
+    socialFacebook: "Facebookでログイン"
+  }
+};
 
 const LoginForm = ({ switchForm }) => {
+  const { lang } = useContext(LanguageContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -12,7 +35,6 @@ const LoginForm = ({ switchForm }) => {
 
   const handleSocialLogin = (provider) => {
     console.log(`Login with ${provider}`);
-    // integrate OAuth later
   };
 
   return (
@@ -21,7 +43,7 @@ const LoginForm = ({ switchForm }) => {
         <FaEnvelope className="input-icon" />
         <input
           type="email"
-          placeholder="Email"
+          placeholder={loginText[lang].email}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -32,28 +54,27 @@ const LoginForm = ({ switchForm }) => {
         <FaLock className="input-icon" />
         <input
           type="password"
-          placeholder="Password"
+          placeholder={loginText[lang].password}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
       </div>
 
-      <button type="submit" className="btn-primary">Login</button>
+      <button type="submit" className="btn-primary">{loginText[lang].loginBtn}</button>
 
-      {/* Social Login */}
       <div className="social-login">
         <button type="button" className="btn-social google" onClick={() => handleSocialLogin("Google")}>
-          <FaGoogle /> Login with Google
+          <FaGoogle /> {loginText[lang].socialGoogle}
         </button>
         <button type="button" className="btn-social facebook" onClick={() => handleSocialLogin("Facebook")}>
-          <FaFacebookF /> Login with Facebook
+          <FaFacebookF /> {loginText[lang].socialFacebook}
         </button>
       </div>
 
       <div className="auth-links">
-        <span onClick={() => switchForm("forgot")}>Forgot Password?</span>
-        <span onClick={() => switchForm("register")}>Register</span>
+        <span onClick={() => switchForm("forgot")}>{loginText[lang].forgot}</span>
+        <span onClick={() => switchForm("register")}>{loginText[lang].register}</span>
       </div>
     </form>
   );

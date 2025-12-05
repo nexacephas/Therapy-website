@@ -1,13 +1,16 @@
-:root {
-  --color-bg: #faf7f4;
-  --color-text: #2a2a2a;
-  --color-primary: #d7a7b0; /* elegant rose */
-  --color-secondary: #f1e3e8;
-  --color-accent: #c47a8c;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap');
 
+/* CSS Variables for fonts and colors */
+:root {
   --font-main: 'Inter', sans-serif;
   --font-heading: 'Playfair Display', serif;
 
+  --color-bg: #fdfaf8;
+  --color-text: #333;
+  --color-primary: #d49a9a;
+  --color-accent: #c77d7d;
+
+  --radius-sm: 6px;
   --radius-md: 12px;
-  --radius-lg: 24px;
+  --radius-lg: 20px;
 }

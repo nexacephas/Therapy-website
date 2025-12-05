@@ -1,21 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Gallery.css";
+import { LanguageContext } from "../../context/LanguageContext"; // import context
 
 // Import images
-import img1 from "../../assets/massage-4916847_1280.jpg";
-import img2 from "../../assets/woman-2722936_1280.jpg";
-import img3 from "../../assets/woman-doctor-5321351_1280.jpg";
-import img4 from "../../assets/anxiety-8116570_1280.jpg";
-import img5 from "../../assets/big banner.jpg";
-import img6 from "../../assets/nurse-2019420_1280.jpg";
+import img1 from "../../assets/Massage Parlour near me.jpeg";
+import img2 from "../../assets/shiatsu.jpeg";
+import img3 from "../../assets/Japanese Cleaning Routine Tips That Will Transform….jpeg";
+import img4 from "../../assets/How to Do Japanese Shiatsu Self-Massage at Home.jpeg";
+import img5 from "../../assets/Japanese Cleaning Routine Tips That Will Transform….jpeg";
 
-const galleryImages = [img1, img2, img3, img4, img5, img6];
+const galleryImages = [img1, img2, img3, img4, img5];
+
+const galleryText = {
+  en: {
+    heading: "Our Gallery",
+  },
+  jp: {
+    heading: "ギャラリー",
+  },
+};
 
 const Gallery = () => {
+  const { lang } = useContext(LanguageContext); // get current language
+
   return (
     <section className="gallery-section">
       <div className="gallery-container">
-        <h2>Our Gallery</h2>
+        <h2>{galleryText[lang].heading}</h2>
         <div className="gallery-grid">
           {galleryImages.map((img, index) => (
             <div

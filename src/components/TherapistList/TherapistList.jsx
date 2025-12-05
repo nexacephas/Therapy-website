@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import "./TherapistList.css";
-import therapist1 from "../../assets/nurse-2019420_1280.jpg";
-import therapist2 from "../../assets/woman-doctor-5321351_1280.jpg";
+import therapist1 from "../../assets/shiatsu.jpeg";
+import therapist2 from "../../assets/Learn Japanese Online_ SNG Japanese Language School.jpeg";
+import { LanguageContext } from "../../context/LanguageContext";
 
 const therapistsData = [
   {
@@ -20,20 +22,40 @@ const therapistsData = [
   },
 ];
 
+// Translations
+const textContent = {
+  en: {
+    heading: "Meet Our Therapists",
+    placeholder: "Search therapists...",
+    bookBtn: "Book Now",
+  },
+  jp: {
+    heading: "セラピスト紹介",
+    placeholder: "セラピストを検索...",
+    bookBtn: "予約する",
+  },
+};
 
 const TherapistList = () => {
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+  const { lang } = useContext(LanguageContext); // get current language
 
   const filteredTherapists = therapistsData.filter((therapist) =>
     therapist.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  const handleBook = (therapist) => {
+    navigate("/booking", { state: { therapist } });
+  };
+
   return (
     <section className="therapist-section">
-      <h2>Meet Our Therapists</h2>
+      <h2>{textContent[lang].heading}</h2>
+
       <input
         type="text"
-        placeholder="Search therapists..."
+        placeholder={textContent[lang].placeholder}
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         className="therapist-search"
@@ -50,6 +72,9 @@ const TherapistList = () => {
               <a href={t.sns.linkedin} target="_blank" rel="noreferrer">💼</a>
               <a href={t.sns.instagram} target="_blank" rel="noreferrer">📸</a>
             </div>
+            <button className="btn-primary book-btn" onClick={() => handleBook(t)}>
+              {textContent[lang].bookBtn}
+            </button>
           </div>
         ))}
       </div>

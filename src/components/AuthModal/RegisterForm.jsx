@@ -1,8 +1,30 @@
-import React, { useState } from "react";
-import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
-import { FaGoogle, FaFacebookF } from "react-icons/fa"; // Import missing social icons
+import React, { useState, useContext } from "react";
+import { FaUser, FaEnvelope, FaLock, FaGoogle, FaFacebookF } from "react-icons/fa";
+import { LanguageContext } from "../../context/LanguageContext";
+
+const registerText = {
+  en: {
+    fullName: "Full Name",
+    email: "Email",
+    password: "Password",
+    registerBtn: "Register",
+    already: "Already have an account? Login",
+    socialGoogle: "Sign up with Google",
+    socialFacebook: "Sign up with Facebook"
+  },
+  jp: {
+    fullName: "氏名",
+    email: "メールアドレス",
+    password: "パスワード",
+    registerBtn: "登録",
+    already: "すでにアカウントをお持ちですか？ログイン",
+    socialGoogle: "Googleで登録",
+    socialFacebook: "Facebookで登録"
+  }
+};
 
 const RegisterForm = ({ switchForm }) => {
+  const { lang } = useContext(LanguageContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -10,12 +32,10 @@ const RegisterForm = ({ switchForm }) => {
   const handleRegister = (e) => {
     e.preventDefault();
     console.log("Register attempt:", { name, email, password });
-    // You can replace this with API call
   };
 
   const handleSocialLogin = (provider) => {
     console.log(`Social login with ${provider}`);
-    // You can integrate Google/Facebook OAuth here
   };
 
   return (
@@ -24,7 +44,7 @@ const RegisterForm = ({ switchForm }) => {
         <FaUser className="input-icon" />
         <input
           type="text"
-          placeholder="Full Name"
+          placeholder={registerText[lang].fullName}
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
@@ -35,7 +55,7 @@ const RegisterForm = ({ switchForm }) => {
         <FaEnvelope className="input-icon" />
         <input
           type="email"
-          placeholder="Email"
+          placeholder={registerText[lang].email}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -46,26 +66,25 @@ const RegisterForm = ({ switchForm }) => {
         <FaLock className="input-icon" />
         <input
           type="password"
-          placeholder="Password"
+          placeholder={registerText[lang].password}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
       </div>
 
-      <button type="submit" className="btn-primary">Register</button>
+      <button type="submit" className="btn-primary">{registerText[lang].registerBtn}</button>
 
       <div className="auth-links">
-        <span onClick={() => switchForm("login")}>Already have an account? Login</span>
+        <span onClick={() => switchForm("login")}>{registerText[lang].already}</span>
       </div>
 
-      {/* Social Login */}
       <div className="social-login">
         <button type="button" className="btn-social google" onClick={() => handleSocialLogin("Google")}>
-          <FaGoogle /> Sign up with Google
+          <FaGoogle /> {registerText[lang].socialGoogle}
         </button>
         <button type="button" className="btn-social facebook" onClick={() => handleSocialLogin("Facebook")}>
-          <FaFacebookF /> Sign up with Facebook
+          <FaFacebookF /> {registerText[lang].socialFacebook}
         </button>
       </div>
     </form>

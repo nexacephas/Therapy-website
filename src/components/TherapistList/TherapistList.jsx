@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./TherapistList.css";
-import therapist1 from "../../assets/shiatsu.jpeg";
+import therapist1 from "../../assets/2012年8月17日浜松にて新規開院された、玉嶋 血液内科・漢方診療所、玉嶋院長先生です。.jpeg";
 import therapist2 from "../../assets/Learn Japanese Online_ SNG Japanese Language School.jpeg";
 import { LanguageContext } from "../../context/LanguageContext";
 

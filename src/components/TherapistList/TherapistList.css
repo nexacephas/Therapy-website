@@ -34,6 +34,7 @@
   gap: 35px;
   max-width: 1200px;
   margin: auto;
+  height: 300px;
 }
 
 .therapist-card {
@@ -52,11 +53,14 @@
 
 .therapist-photo {
   width: 100%;
-  height: 220px;
-  object-fit: cover;
+  height: auto; /* auto height keeps image aspect ratio */
+  max-height: 220px; /* optional max height */
+  object-fit: contain; /* ensures full image is visible */
   border-radius: var(--radius-md);
   margin-bottom: 18px;
+  background: #f8f8f8; /* optional, for empty space around images */
 }
+
 
 .therapist-card h3 {
   font-family: var(--font-heading);

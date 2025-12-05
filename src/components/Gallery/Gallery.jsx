@@ -4,7 +4,7 @@ import { LanguageContext } from "../../context/LanguageContext"; // import conte
 
 // Import images
 import img1 from "../../assets/Massage Parlour near me.jpeg";
-import img2 from "../../assets/shiatsu.jpeg";
+import img2 from "../../assets/Relax and rejuvenate with our Balinese Massage….jpeg";
 import img3 from "../../assets/Japanese Cleaning Routine Tips That Will Transform….jpeg";
 import img4 from "../../assets/How to Do Japanese Shiatsu Self-Massage at Home.jpeg";
 import img5 from "../../assets/Japanese Cleaning Routine Tips That Will Transform….jpeg";

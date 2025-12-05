@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./Hero.css";
-import banner1 from "../../assets/Purpose is the key to a long life_.jpeg";
-import banner2 from "../../assets/Explore a collection of 25 inspiring Reiki phrases….jpeg";
-import banner3 from "../../assets/shiatsu.jpeg";
+import banner1 from "../../assets/Explore the elegance of minimalism with our….jpeg";
+import banner2 from "../../assets/When people think about Japan, green tea….jpeg";
+import banner3 from "../../assets/How to Do Japanese Shiatsu Self-Massage at Home.jpeg";
 import { LanguageContext } from "../../context/LanguageContext";
 
 const banners = [banner1, banner2, banner3];

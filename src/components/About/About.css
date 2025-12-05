@@ -1,0 +1,165 @@
+.about-section {
+  padding: 80px 20px;
+  background: var(--color-secondary);
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.about-image-wrapper {
+  flex: 1;
+  min-width: 300px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 12px 25px rgba(212,154,154,0.3);
+}
+
+.about-image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.about-image-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+.about-content {
+  flex: 2;
+  min-width: 300px;
+}
+
+.about-content h2 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  font-family: var(--font-main);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-bottom: 15px;
+}
+
+/* Fade-in Animations */
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: fadeInLeft 1s forwards;
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(20px);
+  animation: fadeInRight 1s forwards;
+}
+
+@keyframes fadeInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .about-content h2 {
+    font-size: 2rem;
+  }
+
+  .about-content p {
+    font-size: 1rem;
+  }
+}
+/* Values / Features */
+.about-values {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.value-card {
+  flex: 1;
+  min-width: 200px;
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(212,154,154,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(212,154,154,0.3);
+}
+
+.value-icon {
+  font-size: 2.2rem;
+  color: var(--color-primary);
+  margin-bottom: 15px;
+}
+
+/* Value card headings */
+.value-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--color-accent);
+  margin-bottom: 10px;
+}
+
+.value-card p {
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+/* Fade-in-up animation for value cards */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+
+.fade-in-up.delay-1 { animation-delay: 0.4s; }
+.fade-in-up.delay-2 { animation-delay: 0.6s; }
+.fade-in-up.delay-3 { animation-delay: 0.8s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-values {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
